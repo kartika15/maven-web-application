@@ -1,8 +1,9 @@
 pipeline{
 
-	agent {
+	agent any
+	/* {
 		label 'node1'
-	}
+	} */
 
 /* tools{
 maven 'maven3.8.2'
