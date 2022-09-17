@@ -1,11 +1,13 @@
 pipeline{
 
-agent any
+	agent {
+		label 'node1'
+	}
 
-tools{
+/* tools{
 maven 'maven3.8.2'
 
-}
+} */
 
 triggers{
 pollSCM('* * * * *')
@@ -20,7 +22,9 @@ stages{
 
   stage('CheckOutCode'){
     steps{
-    git branch: 'development', credentialsId: '957b543e-6f77-4cef-9aec-82e9b0230975', url: 'https://github.com/devopstrainingblr/maven-web-application-1.git'
+ //git branch: 'development', credentialsId: '957b543e-6f77-4cef-9aec-82e9b0230975', url: 'https://github.com/devopstrainingblr/maven-web-application-1.git'
+	    
+	    git credentialsId: 'new', url: 'https://github.com/kartika15/maven-web-application.git', branch: 'development'
 	
 	}
   }
@@ -53,7 +57,7 @@ stages{
   */
 }//Stages Closing
 
-post{
+/* post{
 
  success{
  emailext to: 'devopstrainingblr@gmail.com,mithuntechnologies@yahoo.com',
@@ -69,7 +73,7 @@ post{
           replyTo: 'devopstrainingblr@gmail.com'
  }
  
-}
+} */
 
 
 }//Pipeline closing
